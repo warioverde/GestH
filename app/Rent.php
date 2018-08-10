@@ -10,7 +10,7 @@ class Rent extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'fecha_entrada_arriendo', 'fechaSalidaArriendo','pago','client_id','room_id'
+        'fecha_entrada_arriendo', 'fecha_salida_arriendo','pago','client_id','room_id'
     ];
 
     public function clients(){

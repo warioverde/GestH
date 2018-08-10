@@ -16,7 +16,7 @@ class CreateRentsTable extends Migration
         Schema::create('rents', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha_entrada_arriendo');
-            $table->date('fechaSalidaArriendo');
+            $table->date('fecha_salida_arriendo');
             $table->integer('pago');
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients');
