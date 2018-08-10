@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Rent;
 use Illuminate\Http\Request;
+use DB;
 
 class RentController extends Controller
 {
@@ -67,4 +68,15 @@ class RentController extends Controller
         Rent::destroy($id);
         return ['deleted' => true];
     }
+    /**public function asociarConHabitacion(Request $request)
+    {
+        DB::table("room_rent")->insert(['room_id' => $request->room_id,'rent_id' => $request->rent_id]);
+        return['updated' => true];
+    }
+    public function retornarHabitacion(Request $request)
+    {
+        DB::table("room_rent")->select(['room_id' => $request->room_id,'rent_id' => $request->rent_id,]);
+        return['updated' => true];
+    }
+    **/
 }

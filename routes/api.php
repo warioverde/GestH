@@ -16,6 +16,14 @@ use Illuminate\Http\Request;
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
-Route::apiResource('rooms','RoomController');
-Route::apiResource('clients','ClientController');
-Route::apiResource('rents','RentController');
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+//Grupo de rutas que tienen un middleware jwt.auth
+Route::group(['middleware' => ['jwt.auth']], function () {
+    Route::apiResource('rooms','RoomController');
+    Route::apiResource('clients','ClientController');
+    Route::apiResource('rents','RentController');
+});
+//Route::apiResource('users','userController');
+Route::post('/login', 'AuthenticateController@authenticate');

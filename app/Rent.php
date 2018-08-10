@@ -10,11 +10,14 @@ class Rent extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'fecha_entrada_arriendo', 'hora_entrada_arriendo', 'fechaSalidaArriendo','hora_salida_arriendo','pago'
+        'fecha_entrada_arriendo', 'fechaSalidaArriendo','pago','client_id','room_id'
     ];
 
     public function clients(){
         return $this->belongsTo('App\Client','client_id');
+    }
+    public function rooms(){
+        return $this->belongsTo('App\Room','room_id');
     }
     
 

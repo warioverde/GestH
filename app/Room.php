@@ -12,6 +12,8 @@ class Room extends Model
     protected $fillable = [
         'cant_camas', 'estado_habitacion'
     ];
-
+    public function rents(){
+        return $this->belongsTo('App\Rent','room_id');
+    }
     
 }
